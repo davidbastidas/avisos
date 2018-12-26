@@ -1,0 +1,750 @@
+@import "../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../node_modules/bootstrap/scss/variables";
+@import "../shared/variables";
+@import "../../../../node_modules/bootstrap/scss/mixins";
+@import "../../../../node_modules/bootstrap/scss/buttons";
+@import "variables";
+
+body.dark-theme {
+    color: $text-color;
+
+    &.boxed-layout {
+        background: $secondary-color;
+    }
+
+    &.sidebar-absolute:not(.sidebar-hidden) {
+        .sidebar {
+            box-shadow: 0 0 15px 0px #1b2235;
+        }
+    }
+
+    *:not(.status-indicator):not(.btn):not(.badge) {
+        border-color: $dark-border-color !important;
+    }
+
+    .content-wrapper,
+    .table-striped tbody tr:nth-of-type(even),
+    .table.table-striped thead tr {
+        background: $secondary-color;
+    }
+
+    .sidebar {
+        .nav {
+            .nav-item {
+                &.nav-profile {
+                    .profile-name {
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .btn-outline-secondary {
+        color: $text-color;
+        border-color: $dark-border-color;
+    }
+
+    #calendar .fc-view-container .fc-view table tbody.fc-body tr td.fc-widget-content .fc-day-grid-container .fc-day-grid .fc-row .fc-bg table tr td,
+    #calendar .fc-header-toolbar .fc-button-group .fc-button {
+        color: $text-color;
+        background: $secondary-color;
+    }
+
+    a.fc-more {
+        color: $text-color;
+    }
+
+    .settings-panel .color-tiles .tiles.dark {
+        background: lighten(theme-color(dark), 5%) !important;
+    }
+
+    .table {
+        &.table-hover {
+            tbody {
+                tr:hover {
+                    background: $secondary-color;
+                }
+            }
+        }
+
+        @mixin table-tr-color-variant($color) {
+            background: transparent;
+
+            td {
+                background: rgba($color, 0.3);
+                color: $text-color;
+            }
+        }
+
+        @each $color,
+        $value in $theme-colors {
+            tr.table-#{$color} {
+                @include table-tr-color-variant($value);
+            }
+        }
+    }
+
+    .card {
+        background: $primary-color;
+        color: #fff;
+
+        .card-header {
+            background: $primary-color;
+
+            &.header-sm {
+                p {
+                    color: $text-color;
+                }
+            }
+        }
+
+        &.card-weather .weakly-weather {
+            background: $primary-color;
+
+            .weakly-weather-item {
+                border-color: $dark-border-color;
+            }
+        }
+
+        &.bg-blue-gradient {
+            background: linear-gradient(to right, #065efd, #3169fd, #6f79fc);
+        }
+
+        &.bg-orange-gradient {
+            background: linear-gradient(to right, #ff7f2e, #fe7452);
+        }
+
+        &.bg-green-gradient {
+            background: linear-gradient(to right, #24e8a6, #09cdd1);
+        }
+    }
+
+    .progress,
+    .top-selling-card .column-wrapper .column {
+        background: $secondary-color;
+    }
+
+    .card-title,
+    .new-accounts ul.chats li.chat-persons a div.user * {
+        color: $text-color;
+    }
+
+    .ct-label {
+        color: $text-color;
+    }
+
+    .c3-legend-item {
+        text {
+            fill: $text-color;
+        }
+    }
+
+    .jsgrid {
+
+        .jsgrid-pager-page,
+        .jsgrid-pager-nav-button {
+            a {
+                @extend .btn-dark;
+            }
+        }
+
+        .jsgrid-pager-nav-button {
+            a {
+                background: rgba(theme-color(primary), 0.3);
+                color: $text-color;
+            }
+        }
+    }
+
+    .horizontal-timeline {
+        .time-frame {
+            .event {
+                .event-alert {
+                    background: rgba(theme-color(primary), 0.3);
+                    color: $text-color;
+                }
+            }
+        }
+    }
+
+    .vertical-timeline {
+        &:before {
+            background-color: $secondary-color;
+        }
+
+        .timeline-wrapper {
+            .timeline-panel {
+                background: $secondary-color;
+
+                &:after {
+                    border-left-color: $secondary-color;
+                }
+
+                .timeline-title {
+                    color: $white;
+                }
+            }
+
+            &.timeline-inverted {
+                .timeline-panel {
+                    &:after {
+                        border-right-color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .ct-grid {
+        stroke: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer {
+        background: $primary-color;
+        border-top: $dark-border-color;
+    }
+
+    .border-top,
+    .border-right,
+    .border-left,
+    .border-bottom,
+    .modal-header {
+        border-color: $dark-border-color;
+    }
+
+    .form-control {
+        background: $secondary-color;
+        border-color: $secondary-color;
+        color: $text-color;
+    }
+
+    .new-accounts ul.chats li.chat-persons {
+        border-color: $dark-border-color;
+    }
+
+    .settings-panel {
+        background: $primary-color;
+
+        .sidebar-bg-options {
+            background: rgba($secondary-color, 0.2);
+            color: $text-color;
+
+            &.selected {
+                background: rgba($secondary-color, 0.5);
+            }
+        }
+    }
+
+    .social-card {
+        &.card-default {
+            .comment {
+                color: $text-color;
+            }
+        }
+    }
+
+    #sourceLineChartLegend li {
+        color: $text-color;
+    }
+
+    .bullet-line-list li:before {
+        background: $secondary-color;
+    }
+
+    .bullet-line-list li:after {
+        border: 1px solid $secondary-color;
+    }
+
+    .accordion {
+        .card {
+            .card-header {
+                a {
+                    color: $text-color;
+
+                    &[aria-expanded="true"] {
+                        background: $secondary-color;
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+
+        &.accordion-solid-bg {
+            .card {
+                .card-header {
+                    a {
+
+                        &[aria-expanded="false"] {
+                            background: $secondary-color;
+                            color: $text-color;
+                        }
+                    }
+                }
+
+                .card-body {
+                    background: $secondary-color;
+                }
+            }
+        }
+    }
+
+    #calendar.fc {
+        .fc-header-toolbar {
+            background: $primary-color;
+        }
+
+        .fc-view-container {
+            .fc-view {
+                background: $secondary-color;
+            }
+        }
+    }
+
+    .calendar-aside .list:hover {
+        background: $secondary-color;
+
+        .count:before {
+            background: $secondary-color;
+        }
+    }
+
+    .breadcrumb {
+        .breadcrumb-item {
+
+            &.active,
+            &::before {
+                color: $text-color;
+            }
+        }
+    }
+
+    .modal {
+        .modal-header {
+            .close {
+                span {
+                    color: $text-color;
+                }
+            }
+        }
+
+        .modal-content {
+            background: $secondary-color;
+        }
+    }
+
+    .pagination {
+        .page-item {
+            .page-link {
+                background: $secondary-color;
+            }
+        }
+    }
+
+    .nav-tabs {
+
+        &.tab-simple-styled,
+        &.tab-basic,
+        .tab-minimal & {
+            .nav-link {
+                &.active {
+                    background: $primary-color;
+                }
+            }
+        }
+
+        .nav-item {
+            .nav-link {
+                color: $text-color;
+            }
+        }
+    }
+
+    .tab-minimal {
+        .nav-tabs {
+            .nav-item {
+                .nav-link.active {
+                    background: transparent;
+                    color: theme-color(primary);
+                }
+            }
+        }
+    }
+
+    .ul-slider.noUi-target {
+        .noUi-base {
+            background: $secondary-color;
+        }
+
+        .noUi-pips {
+            .noUi-value {
+                color: $text-color;
+            }
+        }
+    }
+
+    .select2-container--default {
+
+        .select2-selection--single,
+        .select2-selection--multiple {
+            background: $secondary-color;
+        }
+    }
+
+    .jsgrid-header-row {
+        background: $primary-color;
+
+        >.jsgrid-header-cell {
+            background: $secondary-color;
+        }
+    }
+
+    .jsgrid-filter-row {
+        >.jsgrid-cell {
+            background: $primary-color;
+
+            input,
+            select {
+                background: $secondary-color !important;
+                color: $text-color;
+            }
+        }
+    }
+
+    .form-check {
+        .form-check-label {
+            input:checked+.input-helper:before {
+                background: rgba(#fff, 0.2);
+            }
+        }
+    }
+
+    .jsgrid-grid-body .jsgrid-cell {
+        background: $primary-color;
+    }
+
+    .input-group-prepend,
+    .input-group-append,
+    .select2-container,
+    .tt-menu {
+        background: $secondary-color;
+        color: $text-color;
+
+        .input-group-text {
+            color: inherit;
+        }
+    }
+
+    .select2-dropdown {
+        background: $secondary-color;
+
+        .select2-selection__rendered {
+            color: $text-color;
+        }
+
+        .select2-search__field {
+            background: $primary-color;
+        }
+    }
+
+    .twitter-typeahead {
+        .typeahead {
+            background-color: $secondary-color !important;
+        }
+    }
+
+    .br-theme-bars-square {
+        .br-widget {
+            a {
+                background: $primary-color;
+            }
+        }
+    }
+
+    .br-theme-bars-reversed {
+        .br-widget {
+            .br-current-rating {
+                color: $text-color;
+            }
+        }
+    }
+
+    .br-theme-bars-movie .br-widget .br-current-rating {
+        color: $text-color;
+    }
+
+    .datepicker.datepicker-inline {
+        .datepicker-days {
+            table.table-condensed {
+                thead {
+                    tr {
+                        th {
+
+                            &.prev,
+                            &.datepicker-switch,
+                            &.next {
+                                background: $primary-color;
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+                    td {
+                        &.day {
+                            color: $text-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tagsinput {
+        background: $secondary-color;
+    }
+
+    .editable-form .editable {
+        color: $text-color;
+    }
+
+    .dropzone .dz-message * {
+        color: $text-color;
+    }
+
+    .dropify-wrapper {
+        background: $secondary-color;
+
+        .dropify-message * {
+            color: $text-color;
+
+            &:before {
+                color: inherit;
+            }
+        }
+    }
+
+    .ajax-upload-dragdrop {
+        span {
+            b {
+                color: $text-color;
+            }
+        }
+    }
+
+    .asColorPicker-wrap {
+
+        .asColorPicker-input,
+        .asColorPicker-trigger {
+            background: $secondary-color;
+            color: $text-color;
+        }
+    }
+
+    .wizard {
+        >.content {
+            background: lighten($primary-color, 5%);
+        }
+
+        .steps {
+            .disabled {
+                a {
+                    background: lighten($primary-color, 5%);
+                    color: $text-color;
+                }
+            }
+
+            .done {
+                a {
+                    background: rgba(theme-color(primary), 0.3);
+                }
+            }
+        }
+    }
+
+    .dropdown-menu {
+        background: $secondary-color;
+
+        .dropdown-item {
+            color: $text-color;
+
+            &:hover {
+                background: lighten($secondary-color, 10%);
+            }
+        }
+    }
+
+    .note-editor {
+        .note-toolbar {
+            .note-btn-group {
+                .note-btn {
+                    @extend .btn-dark;
+                }
+
+                .dropdown-menu {
+                    background: $secondary-color;
+                    color: $text-color;
+                }
+            }
+        }
+
+        &.note-frame {
+            .note-editing-area {
+                .note-editable {
+                    background: $secondary-color;
+                    color: $text-color;
+                }
+            }
+
+            .note-statusbar {
+                .note-resizebar {
+                    background: darken($secondary-color, 10%);
+                }
+            }
+        }
+    }
+
+    .editor-toolbar {
+        background: $secondary-color;
+        color: $text-color;
+
+        a {
+            background: $primary-color;
+            color: $text-color !important;
+        }
+    }
+
+    .CodeMirror {
+        background: $secondary-color;
+        color: $text-color;
+    }
+
+    .ql-toolbar.ql-snow {
+        background: $secondary-color;
+
+        .ql-formats {
+
+            .ql-header,
+            button,
+            .ql-stroke {
+                background: $primary-color;
+                color: $text-color;
+                stroke: $text-color;
+            }
+        }
+    }
+
+    .ql-snow.ql-stroke {
+        stroke: $text-color;
+    }
+
+    .mce-stack-layout-item {
+        background: $primary-color;
+
+        button {
+            @extend .btn-dark;
+
+            span,
+            i {
+                color: $text-color;
+            }
+        }
+    }
+
+    .swal-overlay--show-modal {
+        .swal-modal {
+            background: $primary-color;
+            color: $text-color;
+
+            .swal-title,
+            .swal-text,
+            .swal-footer {
+                color: $text-color;
+            }
+
+            .swal-content {
+                .swal-content__input {
+                    background: $secondary-color;
+                }
+            }
+        }
+    }
+
+    .avgrund-popin {
+        background: $primary-color;
+    }
+
+    .icons-list>div {
+        background: $primary-color;
+    }
+
+    .navbar-nav .nav-item.dropdown .navbar-dropdown {
+        background: $primary-color;
+
+        .dropdown-item {
+            color: $text-color;
+
+            &:hover {
+                background: lighten($primary-color, 10%);
+            }
+        }
+    }
+
+    .email-wrapper {
+        .mail-sidebar {
+            .menu-bar {
+                .menu-items {
+                    li {
+                        a {
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            .online-status {
+                .chat {
+                    color: $white;
+                }
+
+                .status {
+                    &:after {
+                        color: $text-muted;
+                    }
+                }
+            }
+
+            .profile-list {
+                .profile-list-item {
+
+                    .u-name,
+                    .u-designation {
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        .message-body {
+            .attachments-sections {
+                ul {
+                    li {
+                        .details {
+                            p.file-name {
+                                color: $white;
+                            }
+                        }
+
+                        .thumb {
+                            i {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.dark-theme:not(.sidebar-light) {}
