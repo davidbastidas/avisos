@@ -29,7 +29,6 @@ class AvisosController extends Controller
 
     public function index()
     {
-        $totalAvisos = Avisos::all()->count();
         $delegaciones = Delegacion::all();
 
         $perPage = 6;
