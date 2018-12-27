@@ -88,7 +88,7 @@ class AvisosController extends Controller
 
         return view('agenda.agenda',
             [
-                'totalAvisos' => $totalAvisos,
+                'totalAvisos' => 0,
                 'delegaciones' => $delegaciones,
                 'agendas' => $posts
             ])->withPosts($posts);
