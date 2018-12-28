@@ -29,7 +29,6 @@ class AvisosController extends Controller
 
     public function index()
     {
-        $totalAvisos = Avisos::all()->count();
         $delegaciones = Delegacion::all();
 
         $perPage = 6;
@@ -89,7 +88,7 @@ class AvisosController extends Controller
 
         return view('agenda.agenda',
             [
-                'totalAvisos' => $totalAvisos,
+                'totalAvisos' => 0,
                 'delegaciones' => $delegaciones,
                 'agendas' => $posts
             ])->withPosts($posts);
