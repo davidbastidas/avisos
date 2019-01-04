@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', [
-    'as' => '/',
-    'uses' => 'HomeController@index'
-]);
+
 
 Auth::routes();
 
 Route::group(['middleware' => 'shareViews'], function () {
     Route::group(['middleware' => ['auth']], function () {
+
+        Route::get('/', [
+            'as' => '/',
+            'uses' => 'HomeController@index'
+        ]);
 
         Route::get('/home', 'HomeController@index')->name('home');
 
