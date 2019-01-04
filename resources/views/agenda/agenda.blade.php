@@ -91,11 +91,7 @@
                                 <tr>
                                     <td>{{$agenda->fecha}}</td>
                                     <td>
-                                        @if($agenda->delegacion == 1)
-                                            ATLANTICO NORTE
-                                        @else
-                                            ATLANTICO SUR
-                                        @endif
+                                      {{$agenda->delegacion}}
                                     </td>
                                     <td>{{$agenda->usuario}}</td>
                                     <td>{{$agenda->cargasPendientes}}</td>

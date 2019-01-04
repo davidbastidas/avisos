@@ -5,4 +5,5 @@ return [
   //'ruta_fotos' => '/var/www/html/operativa/storage/app/public/fotos/'
   'public_fotos' => 'http://localhost/control/operativa/public/fotos/',
   'empresa' => 'Quanta Services Colombia',
+  'mappoint' => 'cartagena',
 ];

@@ -70,7 +70,7 @@ class AvisosController extends Controller
                 'id' => $agenda->id,
                 'codigo' => $agenda->codigo,
                 'fecha' => $agenda->fecha,
-                'delegacion' => $agenda->delegacion_id,
+                'delegacion' => $agenda->delegacion->nombre,
                 'usuario' => $user,
                 'pendientes' => $pendientes,
                 'realizados' => $realizados,

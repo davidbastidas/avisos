@@ -28,20 +28,14 @@
           $day = '0' + $day;
       }
 
-      $fechaNew = null;
-
-      if ($day.toString().length == 1){
-          $fechaNew = $year + '-' + $month + '-' + "0" + $day;
-      } else {
-          $fechaNew = $year + '-' + $month + '-' + $day;
-      }
+      $fechaNew = $year + '-' + $month + '-' + $day;
 
       $('#fecha').val($fechaNew);
       $('#fechaD1').val($fechaNew);
       $('#fechaD2').val($fechaNew);
       $('#fechaAgenda').val($fechaNew);
       $('#fechapagoedit').val($fechaNew);
-      
+
       $('#avisos-check-all').click(function () {
         if ( $(this).is(':checked') ){
             $('.check-avisos').prop("checked", true);

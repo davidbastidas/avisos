@@ -53,7 +53,14 @@
     </div>
 
     <script>
-        var mapVisitas = L.map('map-visitas').setView([10.97, -74.80], 11);
+      var mapVisitas = null;
+      var mappoint = '{{config('myconfig.mappoint')}}';
+      if(mappoint == 'barranquilla'){
+        mapVisitas = L.map('map-visitas').setView([10.97, -74.80], 11);
+      }else if(mappoint == 'cartagena'){
+        mapVisitas = L.map('map-visitas').setView([10.37, -75.48], 11);
+      }
+
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
             maxZoom: 18,

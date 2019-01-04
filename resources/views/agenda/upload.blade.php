@@ -25,11 +25,7 @@
                                 <p class="display-3 mb-4 font-weight-light">
                                     <span
                                         class="mdi mdi-map-marke littler little" style="color:#35abde;">
-                                                        @if($agenda->delegacion_id == 1)
-                                            ATLANTICO NORTE
-                                        @else
-                                            ATLANTICO SUR
-                                        @endif
+                                        {{$agenda->delegacion->nombre}}
                                                     </span></p>
                             </center>
                         </div>

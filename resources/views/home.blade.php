@@ -124,10 +124,29 @@
   </div>
 
   <script>
-      var mapDashboard = L.map('map-dashboard').setView([10.97, -74.80], 11);
 
-      var fechaNew = $('#fecha').val();
+      var mapDashboard = null;
+      var mappoint = '{{config('myconfig.mappoint')}}';
+      if(mappoint == 'barranquilla'){
+        mapDashboard = L.map('map-dashboard').setView([10.97, -74.80], 11);
+      }else if(mappoint == 'cartagena'){
+        mapDashboard = L.map('map-dashboard').setView([10.37, -75.48], 11);
+      }
 
+      var fecha = new Date();
+      var year = fecha.getFullYear();
+      var month = fecha.getMonth() + 1;
+      var day = fecha.getDate();
+
+      if (month < 10) {
+          month = '0' + month;
+      }
+
+      if (day < 10) {
+          day = '0' + day;
+      }
+
+      var fechaNew = year + '-' + month + '-' + day;
 
       let gestor_filtro = $('#gestor_filtro').val();
       let delegacion_filtro = $('#delegacion_filtro').val();
