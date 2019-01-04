@@ -19,11 +19,19 @@
       $year = $fecha.getFullYear();
       $month = $fecha.getMonth() + 1;
       $day = $fecha.getDate();
+
+      if ($month < 10) {
+          $month = '0' + $month;
+      }
+
+      if ($day < 10) {
+          $day = '0' + $day;
+      }
+
       $fechaNew = null;
 
       if ($day.toString().length == 1){
           $fechaNew = $year + '-' + $month + '-' + "0" + $day;
-
       } else {
           $fechaNew = $year + '-' + $month + '-' + $day;
       }
@@ -33,7 +41,7 @@
       $('#fechaD2').val($fechaNew);
       $('#fechaAgenda').val($fechaNew);
       $('#fechapagoedit').val($fechaNew);
-
+      
       $('#avisos-check-all').click(function () {
         if ( $(this).is(':checked') ){
             $('.check-avisos').prop("checked", true);

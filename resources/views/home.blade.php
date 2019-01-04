@@ -126,18 +126,8 @@
   <script>
       var mapDashboard = L.map('map-dashboard').setView([10.97, -74.80], 11);
 
-      var fecha = new Date();
-      var year = fecha.getFullYear();
-      var month = fecha.getMonth() + 1;
-      var day = fecha.getDate();
-      var fechaNew = null;
+      var fechaNew = $('#fecha').val();
 
-      if (day.toString().length == 1){
-          fechaNew = year + '-' + month + '-' + "0" + day;
-
-      } else {
-          fechaNew = year + '-' + month + '-' + day;
-      }
 
       let gestor_filtro = $('#gestor_filtro').val();
       let delegacion_filtro = $('#delegacion_filtro').val();

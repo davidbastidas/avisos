@@ -41,25 +41,38 @@
                 </div>
             </div>
         </li>
-        <li class="nav-item hand" id="reload">
-            <a class="nav-link" href="{{route('home')}}">
-                <i class="menu-icon mdi mdi-television"></i>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
-
-        <li class="nav-item hand">
-            <a class="nav-link" href="{{route('agenda')}}">
-                <i class="menu-icon mdi mdi-book-open-page-variant"></i>
-                <span class="menu-title">Agenda</span>
-            </a>
-        </li>
-
-        <li class="nav-item hand">
-            <a class="nav-link" href="{{route('mapas')}}">
-                <i class="menu-icon mdi mdi-map"></i>
-                <span class="menu-title">Mapa de Visitas</span>
-            </a>
-        </li>
+        @foreach($menus as $menu)
+            @if(Auth::user()->autorizarPerfil([$menu->ruta]))
+                <li class="nav-item">
+                    <a class="nav-link" @if($menu->hijos != "[]") data-toggle="collapse" @endif
+                    @if($menu->hijos != "[]") href="#dashboard-dropdown{{$menu->id}}"
+                       @else
+                       href="{{route($menu->ruta_name)}}"
+                       @endif
+                       aria-expanded="false"
+                       aria-controls="dashboard-dropdown">
+                        <i class="menu-icon {{$menu->icon}}"></i>
+                        <span class="menu-title">{{$menu->nombre}}</span>
+                        @if($menu->hijos != "[]")
+                            <i class="menu-arrow"></i>
+                        @endif
+                    </a>
+                    <div class="collapse" id="dashboard-dropdown{{$menu->id}}">
+                        <ul class="nav flex-column sub-menu">
+                            @foreach($menu->hijos as $hijo)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route($hijo->ruta_name)}}"
+                                       style="text-align: left !important; margin-left: -30px !important; width: 100% !important;"
+                                       @if(Request::is($menu->ruta)) class="active" @endif>
+                                        <i class="menu-icon {{$hijo->icon}}"></i>
+                                        {{$hijo->nombre}}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </li>
+            @endif
+        @endforeach
     </ul>
 </nav>
