@@ -135,51 +135,52 @@ class ApiController extends Controller
     if($request->user){
       $aviso = Avisos::where('id', '=', $request->id)->where('estado', '=', '1')->first();
       if(isset($aviso->id)){
-        if($request->resultado == 0){
-          $request->resultado = null;
-        }
-        if($request->anomalia == 0){
-          $request->anomalia = null;
-        }
-        if($request->entidad_recaudo == 0){
-          $request->entidad_recaudo = null;
-        }
-        if($request->observacion_rapida == 0){
-          $request->observacion_rapida = null;
-        }
-        if($request->fecha_compromiso != ""){
-          $request->fecha_compromiso = Carbon::createFromFormat('d/m/Y', $request->fecha_compromiso)->format('Y-m-d');
-        } else if($request->fecha_compromiso == ""){
-          $request->fecha_compromiso = null;
-        }
-        if($request->fecha_pago != ""){
-          $request->fecha_pago = Carbon::createFromFormat('d/m/Y', $request->fecha_pago)->format('Y-m-d');
-        } else if($request->fecha_pago == ""){
-          $request->fecha_pago = null;
-        }
-        $aviso->resultado_id = $request->resultado;
-        $aviso->anomalia_id = $request->anomalia;
-        $aviso->entidad_recaudo_id = $request->entidad_recaudo;
-        $aviso->fecha_pago = $request->fecha_pago;
-        $aviso->fecha_compromiso = $request->fecha_compromiso;
-        $aviso->persona_contacto = $request->persona_contacto;
-        $aviso->cedula = $request->cedula;
-        $aviso->titular_pago = $request->titular_pago;
-        $aviso->telefono = $request->telefono;
-        $aviso->correo_electronico = $request->correo_electronico;
-        $aviso->observacion_rapida = $request->observacion_rapida;
-        $aviso->lectura = $request->lectura;
-        $aviso->observacion_analisis = $request->observacion_analisis;
-        $aviso->latitud = $request->latitud;
-        $aviso->longitud = $request->longitud;
-        $aviso->fecha_recibido = $request->fecha_realizado;
-        $aviso->fecha_recibido_servidor = Carbon::now();
-        $aviso->estado = 2;
-        $aviso->orden_realizado = $request->orden_realizado;
-
-        $aviso->save();
-
         try {
+          if($request->resultado == 0){
+            $request->resultado = null;
+          }
+          if($request->anomalia == 0){
+            $request->anomalia = null;
+          }
+          if($request->entidad_recaudo == 0){
+            $request->entidad_recaudo = null;
+          }
+          if($request->observacion_rapida == 0){
+            $request->observacion_rapida = null;
+          }
+          if($request->fecha_compromiso != ""){
+            $request->fecha_compromiso = Carbon::createFromFormat('d/m/Y', $request->fecha_compromiso)->format('Y-m-d');
+          } else if($request->fecha_compromiso == ""){
+            $request->fecha_compromiso = null;
+          }
+          if($request->fecha_pago != ""){
+            $request->fecha_pago = Carbon::createFromFormat('d/m/Y', $request->fecha_pago)->format('Y-m-d');
+          } else if($request->fecha_pago == ""){
+            $request->fecha_pago = null;
+          }
+          $aviso->resultado_id = $request->resultado;
+          $aviso->anomalia_id = $request->anomalia;
+          $aviso->entidad_recaudo_id = $request->entidad_recaudo;
+          $aviso->fecha_pago = $request->fecha_pago;
+          $aviso->fecha_compromiso = $request->fecha_compromiso;
+          $aviso->persona_contacto = $request->persona_contacto;
+          $aviso->cedula = $request->cedula;
+          $aviso->titular_pago = $request->titular_pago;
+          $aviso->telefono = $request->telefono;
+          $aviso->correo_electronico = $request->correo_electronico;
+          $aviso->observacion_rapida = $request->observacion_rapida;
+          $aviso->lectura = $request->lectura;
+          $aviso->observacion_analisis = $request->observacion_analisis;
+          $aviso->latitud = $request->latitud;
+          $aviso->longitud = $request->longitud;
+          $aviso->fecha_recibido = $request->fecha_realizado;
+          $aviso->fecha_recibido_servidor = Carbon::now();
+          $aviso->estado = 2;
+          $aviso->orden_realizado = $request->orden_realizado;
+
+          $aviso->save();
+
+
           /*$logSeg = new Log();
           $logSeg->log = '' . $request;
           $logSeg->aviso_id = $aviso->id;
@@ -198,12 +199,11 @@ class ApiController extends Controller
           $logSeg->aviso_id = $aviso->id;
           $logSeg->save();
         } finally {
-
+          $response = array(
+            'estado' => false
+          );
         }
 
-        $response = array(
-          'estado' => true
-        );
       } else {
         $response = array(
           'estado' => true
